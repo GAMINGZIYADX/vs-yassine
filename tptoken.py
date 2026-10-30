@@ -13,7 +13,18 @@ Le chien joue avec une balle.
 Le chat saute sur la table.
 Le chien court après la voiture.
 La souris se cache sous le canapé.
-Le chat regarde par la fenêtre."""
+Le chat regarde par la fenêtre.
+La souris mange du fromage.
+Le chien dort dans la cuisine.
+La voiture passe devant la maison.
+Le chat boit du lait.
+La souris court dans la cuisine.
+Le chien regarde la souris.
+Le chat et le chien jouent dans la cour.
+Une croquette tombe sous la table.
+La maison a une grande fenêtre.
+Le chat attend la souris près du canapé.
+"""
 
 # 2. Transformer le texte en mots
 tokens = word_tokenize(corpus.lower() , language='french')
