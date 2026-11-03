@@ -27,3 +27,5 @@ for intent in data["intents"]:
         print(f"Intent: {intent['intent']}")
         for responses in intent["responses"]:
             print(f" - Response: {responses}")
+
+#   
