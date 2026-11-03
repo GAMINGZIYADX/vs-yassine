@@ -1,0 +1,48 @@
+{
+  "intents": [
+
+    {
+      "intent": "salutation",
+      "questions": ["Hello", "La forme?", "yo", "Salut", "ça roule?"],
+      "responses": ["Salut à toi!", "Hello", "Comment vas tu?", "Salutations!", "Enchanté"]
+    },
+    {
+      "intent": "Découverte de la filière IA",
+      "questions": ["Qu'est-ce que l'intelligence artificielle ?", 
+                    "Qu'est-ce que l'IA?",
+                    "Pourquoi choisir une carrière dans l'IA ?"],
+      "responses": ["L'intelligence artificielle est un domaine de l'informatique qui vise à créer des systèmes capables de simuler l'intelligence humaine, comme le traitement du langage naturel, la reconnaissance d'images ou la prise de décision autonome.!", 
+      "L'IA est un domaine en pleine croissance avec de nombreuses opportunités dans des secteurs comme la santé, les finances, les transports ou encore l'éducation. C'est aussi un domaine innovant qui influence profondément notre avenir."]
+    },
+    
+    {
+      "intent": "Compétences",
+      "questions": ["Quelles compétences dois-je développer pour travailler en IA ?", 
+                    "Dois-je savoir coder pour m'orienter en IA ?"],
+      "responses": ["Pour réussir en IA, il est important de maîtriser les bases de la programmation (Python, par exemple), les mathématiques appliquées (statistiques, algèbre linéaire) et d'avoir des connaissances en apprentissage automatique et en manipulation de données.", 
+      "la programmation est essentielle en IA, car elle permet de mettre en œuvre les modèles et algorithmes nécessaires. Python est le langage le plus utilisé dans ce domaine."]
+      
+    },
+    {
+      "intent": "Débouchés",
+      "questions": ["Quels métiers puis-je exercer en IA ?",
+                    "Dans quels secteurs l'IA est-elle utilisée ?"],
+      "responses": ["Les métiers en IA incluent data scientist, ingénieur en apprentissage automatique, chercheur en IA, développeur d'algorithmes ou encore spécialiste en vision par ordinateur ou traitement du langage naturel.", 
+      "L'IA est utilisée dans de nombreux secteurs, comme la médecine (diagnostics assistés), les transports (véhicules autonomes), la finance (analyse des marchés), et même le divertissement (jeux vidéo, recommandations personnalisées)."]
+    },
+    {
+      "intent": "Orientation académique",
+      "questions": ["Quels sont les meilleurs cursus pour se former à l'IA ?",
+                    "Puis-je apprendre l'IA sans expérience préalable ?"],
+      "responses": ["Pour se former à l'IA, vous pouvez suivre un cursus en informatique, en mathématiques appliquées, ou encore un master spécialisé en intelligence artificielle. De nombreux MOOCs en ligne offrent aussi des bases solides pour commencer.", 
+      "Oui, il existe de nombreuses ressources gratuites et accessibles pour débuter en IA, comme les cours sur Coursera, Udemy ou OpenClassrooms. Avoir une bonne motivation et de la curiosité est essentiel."]
+    },
+    {
+      "intent": "Motivation",
+      "questions": ["Comment savoir si l'IA est faite pour moi ?",
+                    "Je suis intéressé par l'IA mais j'ai peur que ce soit trop difficile. Que faire ?"],
+      "responses": ["Si vous aimez résoudre des problèmes complexes, comprendre comment les machines 'pensent', et que les mathématiques et l'informatique vous intéressent, alors l'IA pourrait être un bon choix pour vous.", 
+      "L'IA peut sembler complexe au début, mais en avançant progressivement, vous verrez que les concepts deviennent plus clairs. Commencez par des bases solides en programmation et explorez ensuite des sujets comme l'apprentissage automatique."]
+    }
+  ]
+}
