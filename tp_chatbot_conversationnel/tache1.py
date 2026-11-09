@@ -1,10 +1,15 @@
 # importation
 import json
+import random
 import string
 from pathlib import Path
 
 import nltk
+import numpy as np
 from nltk.stem import WordNetLemmatizer
+from tensorflow.keras.layers import Dense, Dropout, Input
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.optimizers import Adam
 
 
 nltk.download("punkt", quiet=True)
@@ -61,3 +66,57 @@ for text, intent_name in zip(input_texts, output_intentions):
         if all(c in string.punctuation for c in tok):
             continue
         words.append(lemmatizer.lemmatize(tok.lower()))
+
+    # i. One-Hot encoding de la question (sac de mots sur le vocabulaire)
+    X = [1 if w in words else 0 for w in vocab]
+    # One-Hot encoding de l'intention (Target)
+    target = [0] * len(classes)
+    target[classes.index(intent_name)] = 1
+
+    trainning.append([X, target])
+
+# b. mélanger les éléments de la liste
+random.shuffle(trainning)
+
+# c. convertir la liste en array
+trainning = np.array(trainning, dtype=object)
+
+# d. séparer train_x et train_y
+train_x = np.array(list(trainning[:, 0]), dtype=np.float32)
+train_y = np.array(list(trainning[:, 1]), dtype=np.float32)
+
+print("\nvocab size :", len(vocab))
+print("train_x shape :", train_x.shape)
+print("train_y shape :", train_y.shape)
+
+# tache III : réseau de neurones avec TensorFlow / Keras
+# 1. définition de quelques paramètres
+input_shape = (len(train_x[0]),)   # taille du vocabulaire
+output_shape = len(train_y[0])     # nombre d'intentions
+epochs = 200
+batch_size = 8
+
+# 2. modèle Deep Learning
+model = Sequential([
+    Input(shape=input_shape),
+    Dense(128, activation="relu"),
+    Dropout(0.5),
+    Dense(64, activation="relu"),
+    Dropout(0.5),
+    Dense(output_shape, activation="softmax"),
+])
+
+model.compile(
+    loss="categorical_crossentropy",
+    optimizer=Adam(learning_rate=0.01),
+    metrics=["accuracy"],
+)
+model.summary()
+
+# 3. entraînement du modèle
+history = model.fit(
+    train_x, train_y,
+    epochs=epochs,
+    batch_size=batch_size,
+    verbose=1,
+)
