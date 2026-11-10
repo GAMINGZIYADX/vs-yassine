@@ -96,7 +96,7 @@ print("train_y shape :", train_y.shape)
 # 1. définition de quelques paramètres
 input_shape = (len(train_x[0]),)   # taille du vocabulaire
 output_shape = len(train_y[0])     # nombre d'intentions
-epochs = 200
+epochs = 100
 batch_size = 8
 
 # 2. modèle Deep Learning
@@ -111,7 +111,7 @@ model = Sequential([
 
 model.compile(
     loss="categorical_crossentropy",
-    optimizer=Adam(learning_rate=0.01),
+    optimizer=Adam(learning_rate=0.001),
     metrics=["accuracy"],
 )
 model.summary()
@@ -134,9 +134,18 @@ def bag_of_words(text):
     return np.array([[1 if w in words else 0 for w in vocab]], dtype=np.float32)
 
 
+SEUIL = 0.7  # score minimal pour accepter une prédiction
+
+
 def predict_intent(text):
-    probs = model.predict(bag_of_words(text), verbose=0)[0]
+    bow = bag_of_words(text)
+    # aucun mot connu du vocabulaire : le modèle n'a rien à analyser
+    if bow.sum() == 0:
+        return None, 0.0
+    probs = model.predict(bow, verbose=0)[0]
     idx = int(np.argmax(probs))
+    if probs[idx] < SEUIL:
+        return None, float(probs[idx])
     return classes[idx], float(probs[idx])
 
 
@@ -151,4 +160,11 @@ while True:
     if not question:
         continue
     intention, score = predict_intent(question)
+    if bag_of_words(question).sum() > 0:
+        probs = model.predict(bag_of_words(question), verbose=0)[0]
+        for i in np.argsort(probs)[::-1]:  # du score le plus élevé au plus bas
+            print(f"  Classe {i} | {classes[i]:<30} | {probs[i]:.2%}")
+    if intention is None:
+        print(f"Intention : inconnue (je n'ai pas compris) | Score : {score:.2%}")
+        continue
     print(f"Intention : {intention} | Classe : {classes.index(intention)} | Score : {score:.2%}")
