@@ -1,4 +1,7 @@
 # importation
+import os
+os.environ["KERAS_BACKEND"] = "torch"  # Keras seul, sans TensorFlow (doit précéder l'import de keras)
+
 import json
 import random
 import string
@@ -7,9 +10,9 @@ from pathlib import Path
 import nltk
 import numpy as np
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.layers import Dense, Dropout, Input
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.optimizers import Adam
+from keras.layers import Dense, Dropout, Input
+from keras.models import Sequential
+from keras.optimizers import Adam
 
 
 nltk.download("punkt", quiet=True)
@@ -89,7 +92,7 @@ print("\nvocab size :", len(vocab))
 print("train_x shape :", train_x.shape)
 print("train_y shape :", train_y.shape)
 
-# tache III : réseau de neurones avec TensorFlow / Keras
+# tache III : réseau de neurones avec Keras
 # 1. définition de quelques paramètres
 input_shape = (len(train_x[0]),)   # taille du vocabulaire
 output_shape = len(train_y[0])     # nombre d'intentions
@@ -120,3 +123,32 @@ history = model.fit(
     batch_size=batch_size,
     verbose=1,
 )
+
+# tache IV : prédiction
+def bag_of_words(text):
+    words = [
+        lemmatizer.lemmatize(tok.lower())
+        for tok in nltk.word_tokenize(text)
+        if not all(c in string.punctuation for c in tok)
+    ]
+    return np.array([[1 if w in words else 0 for w in vocab]], dtype=np.float32)
+
+
+def predict_intent(text):
+    probs = model.predict(bag_of_words(text), verbose=0)[0]
+    idx = int(np.argmax(probs))
+    return classes[idx], float(probs[idx])
+
+
+print("\n--- Prédiction (tapez 'quit' pour arrêter) ---")
+while True:
+    try:
+        question = input("Vous : ").strip()
+    except EOFError:
+        break
+    if question.lower() in ("quit", "exit", "q"):
+        break
+    if not question:
+        continue
+    intention, score = predict_intent(question)
+    print(f"Intention : {intention} | Classe : {classes.index(intention)} | Score : {score:.2%}")
