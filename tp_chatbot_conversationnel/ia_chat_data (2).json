@@ -241,6 +241,42 @@
         "Je suis là pour vous aider ! Posez-moi votre question sur l'IA, ou contactez un conseiller d'orientation de votre établissement pour un échange personnalisé.",
         "Pour parler à un conseiller, rapprochez-vous du service d'orientation de votre établissement ou prenez rendez-vous via leur site."
       ]
+    },
+    {
+      "intent": "Tarifs",
+      "questions": [
+        "Combien coûte la formation ?",
+        "Quel est le prix de la formation en IA ?",
+        "La formation est-elle gratuite ?",
+        "Y a-t-il une bourse pour étudier l'IA ?",
+        "Quels sont les tarifs ?",
+        "Existe-t-il un financement pour la formation ?",
+        "Est-ce que c'est payant ?",
+        "Combien coûte un master en IA ?",
+        "Quel budget prévoir pour se former à l'IA ?"
+      ],
+      "responses": [
+        "Les tarifs varient : de nombreux cours en ligne (MOOCs, Kaggle, YouTube) sont gratuits, les certificats coûtent souvent quelques dizaines d'euros, et un master public reste peu cher alors qu'une école privée peut dépasser 5 000 € par an. Des bourses et financements existent selon votre situation.",
+        "Renseignez-vous sur le site de la formation pour le tarif exact. Pensez aussi aux bourses, au financement par l'employeur ou aux aides à la formation."
+      ]
+    },
+    {
+      "intent": "Modalités",
+      "questions": [
+        "La formation est-elle en ligne ?",
+        "Peut-on suivre les cours à distance ?",
+        "Y a-t-il des cours en présentiel ?",
+        "Est-ce que la formation est à temps partiel ?",
+        "Existe-t-il une formation en alternance en IA ?",
+        "Quelle est la durée de la formation ?",
+        "Combien de temps dure le master en IA ?",
+        "Peut-on étudier l'IA le soir ou le week-end ?",
+        "La formation est-elle hybride ?"
+      ],
+      "responses": [
+        "Beaucoup de formations en IA existent en ligne, en présentiel, en hybride ou en alternance. Un master dure en général 2 ans, un bootcamp quelques mois, et les cours en ligne se suivent à votre rythme, y compris à temps partiel.",
+        "Selon l'établissement, vous pouvez suivre les cours à distance, en présentiel ou en alternance. Vérifiez la durée et le rythme (temps plein ou partiel) avant de vous inscrire."
+      ]
     }
   ],
   "entities": {
@@ -330,6 +366,36 @@
       "automobile",
       "commerce",
       "marketing"
+    ],
+    "prix": [
+      "gratuit",
+      "gratuite",
+      "gratuits",
+      "gratuites",
+      "payant",
+      "payante",
+      "pas cher",
+      "bourse",
+      "financement",
+      "tarif",
+      "tarifs",
+      "prix",
+      "coût",
+      "frais"
+    ],
+    "modalite": [
+      "en ligne",
+      "présentiel",
+      "à distance",
+      "distanciel",
+      "hybride",
+      "temps plein",
+      "temps partiel",
+      "alternance",
+      "autodidacte",
+      "en autodidacte",
+      "cours du soir",
+      "week-end"
     ]
   },
   "question_types": {

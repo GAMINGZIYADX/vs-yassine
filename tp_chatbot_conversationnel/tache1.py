@@ -161,6 +161,11 @@ def detect_entities(text):
                 continue
             taken.append((m.start(), m.end()))
             found.append((m.group(0), etype))
+    # montants chiffrés : "500 €", "2000 euros", "300 dh"
+    for m in re.finditer(r"\d+(?:[.,]\d+)?\s?(?:€|euros?|eur|dhs?|dirhams?|\$)(?!\w)", text, flags=re.IGNORECASE):
+        if not any(m.start() < e and m.end() > s for s, e in taken):
+            taken.append((m.start(), m.end()))
+            found.append((m.group(0), "prix"))
     return found
 
 
@@ -200,6 +205,42 @@ def predict_intent(text):
     return classes[idx], float(probs[idx])
 
 
+# tache VI : état de la conversation (State.md), mis à jour après chaque message
+STATE_PATH = Path(__file__).resolve().parent / "State.md"
+IGNORER = {"salutation", "Au revoir", "Remerciement"}  # intentions qui ne mettent pas l'état à jour
+
+# slots affichés dans State.md (dans cet ordre) : "intention", "type_question" puis les types d'entités
+SLOTS = ["intention", "type_question"] + list(data.get("entities", {}).keys())
+state = {slot: None for slot in SLOTS}
+historique = []
+
+
+def update_state(question, intention, qtype, entities):
+    if intention in IGNORER:
+        return False
+    if intention is not None:  # intention inconnue : on garde la précédente
+        state["intention"] = intention
+        if qtype:
+            state["type_question"] = qtype
+    for value, etype in entities:  # la valeur la plus récente remplace l'ancienne
+        state[etype] = value
+    historique.append((question, intention or "inconnue"))
+    return True
+
+
+def write_state():
+    with open(STATE_PATH, "w", encoding="utf-8") as f:
+        f.write("# État du chatbot\n\n")
+        f.write("| Slot | Valeur |\n|---|---|\n")
+        for slot in SLOTS:
+            f.write(f"| {slot} | {state[slot] if state[slot] else '—'} |\n")
+        f.write("\n## Historique\n")
+        for i, (q, it) in enumerate(historique, 1):
+            f.write(f"{i}. {q} → *{it}*\n")
+
+
+write_state()  # crée State.md dès le démarrage (état vide)
+
 print("\n--- Prédiction (tapez 'quit' pour arrêter) ---")
 while True:
     try:
@@ -223,5 +264,7 @@ while True:
             print(f"  Classe {i} | {classes[i]:<30} | {probs[i]:.2%}")
     if intention is None:
         print(f"Intention : inconnue (je n'ai pas compris) | Score : {score:.2%}")
-        continue
-    print(f"Intention : {intention} | Classe : {classes.index(intention)} | Score : {score:.2%}")
+    else:
+        print(f"Intention : {intention} | Classe : {classes.index(intention)} | Score : {score:.2%}")
+    if update_state(question, intention, qtype, entities):
+        write_state()
