@@ -37,6 +37,11 @@ output_intentions = []  # c. intention de chaque question
 tokens = []             # d. tokens lemmatisés
 
 lemmatizer = WordNetLemmatizer()
+
+
+def normaliser(text):
+    """l'IA -> l IA : sépare les élisions pour que 'IA' soit reconnu seul."""
+    return text.replace("’", "'").replace("'", " ")
  
 for intent in data["intents"]:
     if intent["intent"] not in classes:
@@ -47,7 +52,7 @@ for intent in data["intents"]:
         output_intentions.append(intent["intent"])
  
         # i. tokenization par mot
-        for tok in nltk.word_tokenize(question):
+        for tok in nltk.word_tokenize(normaliser(question)):
             # ii. supprimer les tokens qui ne contiennent que des symboles
             if all(c in string.punctuation for c in tok):
                 continue
@@ -66,7 +71,7 @@ trainning = []
 for text, intent_name in zip(input_texts, output_intentions):
     # mots (lemmatisés) de cette question
     words = []
-    for tok in nltk.word_tokenize(text):
+    for tok in nltk.word_tokenize(normaliser(text)):
         if all(c in string.punctuation for c in tok):
             continue
         words.append(lemmatizer.lemmatize(tok.lower()))
@@ -129,7 +134,7 @@ history = model.fit(
 def bag_of_words(text):
     words = [
         lemmatizer.lemmatize(tok.lower())
-        for tok in nltk.word_tokenize(text)
+        for tok in nltk.word_tokenize(normaliser(text))
         if not all(c in string.punctuation for c in tok)
     ]
     return np.array([[1 if w in words else 0 for w in vocab]], dtype=np.float32)
@@ -146,6 +151,7 @@ entity_values.sort(key=lambda ev: len(ev[0]), reverse=True)  # les plus longues 
 
 
 def detect_entities(text):
+    text = text.replace("’", "'")
     found = []
     taken = []  # zones déjà prises, pour éviter les chevauchements
     for value, etype in entity_values:
@@ -156,6 +162,27 @@ def detect_entities(text):
             taken.append((m.start(), m.end()))
             found.append((m.group(0), etype))
     return found
+
+
+# type de question (comment, pourquoi, qu'est-ce que...) : mots-clés du JSON "question_types"
+question_patterns = [
+    (kw, qtype)
+    for qtype, kws in data.get("question_types", {}).items()
+    for kw in kws
+]
+
+
+def detect_question_type(text):
+    """Retourne le type dont le mot-clé apparaît en premier dans la phrase (None sinon)."""
+    t = text.replace("’", "'")
+    best = None  # (position, -longueur, type)
+    for kw, qtype in question_patterns:
+        m = re.search(r"(?<!\w)" + re.escape(kw) + r"(?!\w)", t, flags=re.IGNORECASE)
+        if m:
+            cand = (m.start(), -len(kw), qtype)
+            if best is None or cand < best:
+                best = cand
+    return best[2] if best else None
 
 
 SEUIL = 0.7  # score minimal pour accepter une prédiction
@@ -183,6 +210,9 @@ while True:
         break
     if not question:
         continue
+    qtype = detect_question_type(question)
+    if qtype:
+        print("  Type de question :", qtype)
     entities = detect_entities(question)
     if entities:
         print("  Entités :", ", ".join(f"{v} ({t})" for v, t in entities))

@@ -1,56 +1,394 @@
 {
   "intents": [
-
     {
       "intent": "salutation",
-      "questions": ["Hello", "La forme?", "yo", "Salut", "ça roule?"],
-      "responses": ["Salut à toi!", "Hello", "Comment vas tu?", "Salutations!", "Enchanté"]
+      "questions": [
+        "Hello",
+        "La forme?",
+        "yo",
+        "Salut",
+        "ça roule?",
+        "Bonjour",
+        "Bonsoir",
+        "Coucou",
+        "Salut ça va ?",
+        "Hey",
+        "Ça va ?",
+        "Quoi de neuf ?",
+        "Salutations",
+        "Hello tout le monde",
+        "Bonjour à tous"
+      ],
+      "responses": [
+        "Salut à toi!",
+        "Hello",
+        "Comment vas tu?",
+        "Salutations!",
+        "Enchanté"
+      ]
     },
     {
       "intent": "Découverte de la filière IA",
-      "questions": ["Qu'est-ce que l'intelligence artificielle ?", 
-                    "Qu'est-ce que l'IA?",
-                    "Pourquoi choisir une carrière dans l'IA ?"],
-      "responses": ["L'intelligence artificielle est un domaine de l'informatique qui vise à créer des systèmes capables de simuler l'intelligence humaine, comme le traitement du langage naturel, la reconnaissance d'images ou la prise de décision autonome.!", 
-      "L'IA est un domaine en pleine croissance avec de nombreuses opportunités dans des secteurs comme la santé, les finances, les transports ou encore l'éducation. C'est aussi un domaine innovant qui influence profondément notre avenir."]
+      "questions": [
+        "Qu'est-ce que l'intelligence artificielle ?",
+        "Qu'est-ce que l'IA?",
+        "Pourquoi choisir une carrière dans l'IA ?",
+        "C'est quoi l'IA ?",
+        "Définis l'intelligence artificielle",
+        "Expliquez-moi ce qu'est l'IA",
+        "À quoi sert l'intelligence artificielle ?",
+        "Comment fonctionne l'IA ?",
+        "Comment l'IA apprend-elle ?",
+        "Comment marche l'intelligence artificielle ?",
+        "Pourquoi l'IA est-elle importante ?",
+        "Quelle est la différence entre IA et machine learning ?",
+        "Qu'est-ce que le deep learning ?",
+        "Qu'est-ce que le machine learning ?",
+        "Quelle est l'histoire de l'intelligence artificielle ?"
+      ],
+      "responses": [
+        "L'intelligence artificielle est un domaine de l'informatique qui vise à créer des systèmes capables de simuler l'intelligence humaine, comme le traitement du langage naturel, la reconnaissance d'images ou la prise de décision autonome.!",
+        "L'IA est un domaine en pleine croissance avec de nombreuses opportunités dans des secteurs comme la santé, les finances, les transports ou encore l'éducation. C'est aussi un domaine innovant qui influence profondément notre avenir."
+      ]
     },
-    
     {
       "intent": "Compétences",
-      "questions": ["Quelles compétences dois-je développer pour travailler en IA ?", 
-                    "Dois-je savoir coder pour m'orienter en IA ?"],
-      "responses": ["Pour réussir en IA, il est important de maîtriser les bases de la programmation (Python, par exemple), les mathématiques appliquées (statistiques, algèbre linéaire) et d'avoir des connaissances en apprentissage automatique et en manipulation de données.", 
-      "la programmation est essentielle en IA, car elle permet de mettre en œuvre les modèles et algorithmes nécessaires. Python est le langage le plus utilisé dans ce domaine."]
-      
+      "questions": [
+        "Quelles compétences dois-je développer pour travailler en IA ?",
+        "Dois-je savoir coder pour m'orienter en IA ?",
+        "Quelles sont les compétences requises en IA ?",
+        "Quels langages de programmation faut-il connaître pour l'IA ?",
+        "Faut-il être bon en maths pour faire de l'IA ?",
+        "Quel niveau en mathématiques faut-il pour l'IA ?",
+        "Python est-il obligatoire pour l'IA ?",
+        "Quels outils dois-je maîtriser en IA ?",
+        "Comment développer mes compétences en IA ?",
+        "Faut-il connaître les statistiques pour l'IA ?",
+        "Quelles sont les qualités d'un bon data scientist ?",
+        "Est-ce que je dois apprendre le SQL pour l'IA ?"
+      ],
+      "responses": [
+        "Pour réussir en IA, il est important de maîtriser les bases de la programmation (Python, par exemple), les mathématiques appliquées (statistiques, algèbre linéaire) et d'avoir des connaissances en apprentissage automatique et en manipulation de données.",
+        "la programmation est essentielle en IA, car elle permet de mettre en œuvre les modèles et algorithmes nécessaires. Python est le langage le plus utilisé dans ce domaine."
+      ]
     },
     {
       "intent": "Débouchés",
-      "questions": ["Quels métiers puis-je exercer en IA ?",
-                    "Dans quels secteurs l'IA est-elle utilisée ?"],
-      "responses": ["Les métiers en IA incluent data scientist, ingénieur en apprentissage automatique, chercheur en IA, développeur d'algorithmes ou encore spécialiste en vision par ordinateur ou traitement du langage naturel.", 
-      "L'IA est utilisée dans de nombreux secteurs, comme la médecine (diagnostics assistés), les transports (véhicules autonomes), la finance (analyse des marchés), et même le divertissement (jeux vidéo, recommandations personnalisées)."]
+      "questions": [
+        "Quels métiers puis-je exercer en IA ?",
+        "Dans quels secteurs l'IA est-elle utilisée ?",
+        "Quels sont les débouchés en IA ?",
+        "Qui recrute des experts en IA ?",
+        "Quels postes existent dans l'intelligence artificielle ?",
+        "Y a-t-il du travail en IA ?",
+        "Quelles entreprises embauchent en intelligence artificielle ?",
+        "Quel métier choisir dans l'IA ?",
+        "Quelles sont les carrières possibles en IA ?",
+        "Qu'est-ce qu'un data scientist ?",
+        "Quelle est la différence entre data scientist et data analyst ?",
+        "L'IA est-elle utilisée dans la santé ?"
+      ],
+      "responses": [
+        "Les métiers en IA incluent data scientist, ingénieur en apprentissage automatique, chercheur en IA, développeur d'algorithmes ou encore spécialiste en vision par ordinateur ou traitement du langage naturel.",
+        "L'IA est utilisée dans de nombreux secteurs, comme la médecine (diagnostics assistés), les transports (véhicules autonomes), la finance (analyse des marchés), et même le divertissement (jeux vidéo, recommandations personnalisées)."
+      ]
     },
     {
       "intent": "Orientation académique",
-      "questions": ["Quels sont les meilleurs cursus pour se former à l'IA ?",
-                    "Puis-je apprendre l'IA sans expérience préalable ?"],
-      "responses": ["Pour se former à l'IA, vous pouvez suivre un cursus en informatique, en mathématiques appliquées, ou encore un master spécialisé en intelligence artificielle. De nombreux MOOCs en ligne offrent aussi des bases solides pour commencer.", 
-      "Oui, il existe de nombreuses ressources gratuites et accessibles pour débuter en IA, comme les cours sur Coursera, Udemy ou OpenClassrooms. Avoir une bonne motivation et de la curiosité est essentiel."]
+      "questions": [
+        "Quels sont les meilleurs cursus pour se former à l'IA ?",
+        "Puis-je apprendre l'IA sans expérience préalable ?",
+        "Quelle formation choisir pour devenir ingénieur en IA ?",
+        "Où étudier l'intelligence artificielle ?",
+        "Quel master choisir pour l'IA ?",
+        "Existe-t-il des formations gratuites en IA ?",
+        "Quelles écoles proposent une formation en IA ?",
+        "Faut-il faire une école d'ingénieur pour l'IA ?",
+        "Comment se former à l'IA ?",
+        "Peut-on apprendre l'IA en autodidacte ?",
+        "Quels cours en ligne pour apprendre le machine learning ?",
+        "Quelle licence choisir pour faire de l'IA ?"
+      ],
+      "responses": [
+        "Pour se former à l'IA, vous pouvez suivre un cursus en informatique, en mathématiques appliquées, ou encore un master spécialisé en intelligence artificielle. De nombreux MOOCs en ligne offrent aussi des bases solides pour commencer.",
+        "Oui, il existe de nombreuses ressources gratuites et accessibles pour débuter en IA, comme les cours sur Coursera, Udemy ou OpenClassrooms. Avoir une bonne motivation et de la curiosité est essentiel."
+      ]
     },
     {
       "intent": "Motivation",
-      "questions": ["Comment savoir si l'IA est faite pour moi ?",
-                    "Je suis intéressé par l'IA mais j'ai peur que ce soit trop difficile. Que faire ?"],
-      "responses": ["Si vous aimez résoudre des problèmes complexes, comprendre comment les machines 'pensent', et que les mathématiques et l'informatique vous intéressent, alors l'IA pourrait être un bon choix pour vous.", 
-      "L'IA peut sembler complexe au début, mais en avançant progressivement, vous verrez que les concepts deviennent plus clairs. Commencez par des bases solides en programmation et explorez ensuite des sujets comme l'apprentissage automatique."]
+      "questions": [
+        "Comment savoir si l'IA est faite pour moi ?",
+        "Je suis intéressé par l'IA mais j'ai peur que ce soit trop difficile. Que faire ?",
+        "L'IA est-elle faite pour moi ?",
+        "Est-ce que l'IA est trop difficile ?",
+        "J'ai peur de ne pas y arriver en IA",
+        "Je n'ai pas un bon niveau en maths, puis-je faire de l'IA ?",
+        "Comment rester motivé pour apprendre l'IA ?",
+        "Suis-je capable d'apprendre l'IA ?",
+        "Est-ce que l'IA a un avenir ?",
+        "Je suis perdu, par où commencer en IA ?",
+        "Je doute de mes capacités pour l'IA",
+        "Est-ce trop tard pour se lancer dans l'IA ?"
+      ],
+      "responses": [
+        "Si vous aimez résoudre des problèmes complexes, comprendre comment les machines 'pensent', et que les mathématiques et l'informatique vous intéressent, alors l'IA pourrait être un bon choix pour vous.",
+        "L'IA peut sembler complexe au début, mais en avançant progressivement, vous verrez que les concepts deviennent plus clairs. Commencez par des bases solides en programmation et explorez ensuite des sujets comme l'apprentissage automatique."
+      ]
+    },
+    {
+      "intent": "Salaire",
+      "questions": [
+        "Quel est le salaire d'un data scientist ?",
+        "Combien gagne un ingénieur en IA ?",
+        "Quelle est la rémunération en IA ?",
+        "Les métiers de l'IA sont-ils bien payés ?",
+        "Combien peut-on gagner en travaillant dans l'IA ?",
+        "Quel salaire pour un débutant en intelligence artificielle ?",
+        "Un data analyst est-il bien payé ?"
+      ],
+      "responses": [
+        "À titre indicatif, les métiers de l'IA sont parmi les mieux rémunérés de l'informatique : un débutant gagne souvent entre 38 000 et 50 000 € brut par an en France, et les profils expérimentés dépassent largement ce niveau selon le poste, l'entreprise et la ville.",
+        "Le salaire dépend du métier (data analyst, data scientist, ingénieur ML...), de l'expérience et du secteur. La finance et la tech sont généralement les plus généreuses."
+      ]
+    },
+    {
+      "intent": "Outils et technologies",
+      "questions": [
+        "Quels outils utilise-t-on en IA ?",
+        "Quelles bibliothèques Python pour l'IA ?",
+        "C'est quoi TensorFlow ?",
+        "Que sont Keras et PyTorch ?",
+        "Quel framework choisir pour le deep learning ?",
+        "À quoi sert scikit-learn ?",
+        "Quelle différence entre Keras et PyTorch ?",
+        "Comment utiliser Pandas et NumPy ?"
+      ],
+      "responses": [
+        "Les outils courants en IA sont Python avec NumPy et Pandas pour les données, scikit-learn pour le machine learning classique, et Keras, TensorFlow ou PyTorch pour le deep learning.",
+        "Keras est une API simple pour construire des réseaux de neurones, qui fonctionne au-dessus de TensorFlow, PyTorch ou JAX. PyTorch est très apprécié en recherche, TensorFlow en production."
+      ]
+    },
+    {
+      "intent": "Au revoir",
+      "questions": [
+        "Au revoir",
+        "À bientôt",
+        "Bye",
+        "À plus tard",
+        "Bonne journée",
+        "Je dois y aller",
+        "À la prochaine"
+      ],
+      "responses": [
+        "Au revoir, et bonne continuation dans l'IA !",
+        "À bientôt !",
+        "Bonne journée !"
+      ]
+    },
+    {
+      "intent": "Remerciement",
+      "questions": [
+        "Merci",
+        "Merci beaucoup",
+        "Super, merci pour ton aide",
+        "Je te remercie",
+        "Merci, c'est très clair",
+        "Génial, merci"
+      ],
+      "responses": [
+        "Avec plaisir !",
+        "De rien, n'hésitez pas si vous avez d'autres questions.",
+        "Content d'avoir pu aider !"
+      ]
+    },
+    {
+      "intent": "Inscription",
+      "questions": [
+        "Je veux m'inscrire",
+        "Je veut m'inscrire",
+        "Je souhaite m'inscrire à une formation en IA",
+        "Comment m'inscrire ?",
+        "Où puis-je m'inscrire ?",
+        "Quelles sont les démarches d'inscription ?",
+        "Quand commencent les inscriptions ?",
+        "Inscription à la formation IA",
+        "Je voudrais postuler",
+        "Comment candidater à un master en IA ?",
+        "Quels documents faut-il pour s'inscrire ?",
+        "Quels sont les frais d'inscription ?",
+        "J'aimerais m'inscrire à un cours d'IA",
+        "Je veux commencer la formation, que dois-je faire ?",
+        "Comment s'inscrire à un MOOC ?"
+      ],
+      "responses": [
+        "Pour vous inscrire, rendez-vous sur le site de la formation choisie, créez un compte puis remplissez le formulaire d'inscription (pièce d'identité, CV et derniers diplômes sont généralement demandés).",
+        "Les inscriptions se font en ligne : créez un compte, complétez votre dossier et validez-le avant la date limite. Les MOOCs (Coursera, OpenClassrooms...) s'ouvrent en quelques clics, souvent gratuitement."
+      ]
+    },
+    {
+      "intent": "Aide et contact",
+      "questions": [
+        "J'ai besoin d'aide",
+        "Je veux parler à un conseiller",
+        "Comment vous contacter ?",
+        "Pouvez-vous m'aider ?",
+        "Je cherche un conseiller d'orientation",
+        "Je veux un rendez-vous",
+        "Avez-vous un numéro de téléphone ?",
+        "Aidez-moi s'il vous plaît"
+      ],
+      "responses": [
+        "Je suis là pour vous aider ! Posez-moi votre question sur l'IA, ou contactez un conseiller d'orientation de votre établissement pour un échange personnalisé.",
+        "Pour parler à un conseiller, rapprochez-vous du service d'orientation de votre établissement ou prenez rendez-vous via leur site."
+      ]
     }
   ],
   "entities": {
-    "langage": ["Python", "R", "Java", "C++", "SQL", "Julia"],
-    "plateforme": ["Coursera", "Udemy", "OpenClassrooms", "MOOC", "MOOCs"],
-    "metier": ["data scientist", "ingénieur en apprentissage automatique", "chercheur en IA", "développeur d'algorithmes", "spécialiste en vision par ordinateur"],
-    "secteur": ["santé", "médecine", "finance", "transports", "éducation", "divertissement", "jeux vidéo"],
-    "domaine_ia": ["apprentissage automatique", "machine learning", "deep learning", "traitement du langage naturel", "NLP", "vision par ordinateur", "reconnaissance d'images"],
-    "formation": ["master", "informatique", "mathématiques appliquées", "cursus"]
+    "domaine_ia": [
+      "IA",
+      "intelligence artificielle",
+      "apprentissage automatique",
+      "machine learning",
+      "deep learning",
+      "traitement du langage naturel",
+      "NLP",
+      "vision par ordinateur",
+      "reconnaissance d'images",
+      "réseaux de neurones",
+      "data science",
+      "big data",
+      "robotique",
+      "chatbot",
+      "IA générative"
+    ],
+    "metier": [
+      "data scientist",
+      "data scientists",
+      "data analyst",
+      "data engineer",
+      "ingénieur en IA",
+      "ingénieur IA",
+      "ingénieur en apprentissage automatique",
+      "machine learning engineer",
+      "chercheur en IA",
+      "développeur d'algorithmes",
+      "spécialiste en vision par ordinateur"
+    ],
+    "langage": [
+      "Python",
+      "R",
+      "Java",
+      "C++",
+      "SQL",
+      "Julia"
+    ],
+    "framework": [
+      "TensorFlow",
+      "Keras",
+      "PyTorch",
+      "scikit-learn",
+      "Pandas",
+      "NumPy",
+      "JAX"
+    ],
+    "plateforme": [
+      "Coursera",
+      "Udemy",
+      "OpenClassrooms",
+      "edX",
+      "Kaggle",
+      "YouTube",
+      "MOOC",
+      "MOOCs"
+    ],
+    "formation": [
+      "master",
+      "licence",
+      "doctorat",
+      "thèse",
+      "bootcamp",
+      "école d'ingénieur",
+      "informatique",
+      "mathématiques appliquées",
+      "mathématiques",
+      "statistiques",
+      "maths",
+      "cursus"
+    ],
+    "secteur": [
+      "santé",
+      "médecine",
+      "finance",
+      "banque",
+      "transports",
+      "éducation",
+      "divertissement",
+      "jeux vidéo",
+      "agriculture",
+      "industrie",
+      "cybersécurité",
+      "automobile",
+      "commerce",
+      "marketing"
+    ]
+  },
+  "question_types": {
+    "définition (qu'est-ce que / c'est quoi)": [
+      "qu'est-ce que",
+      "qu'est-ce qu'",
+      "qu'est ce que",
+      "c'est quoi",
+      "définis",
+      "définition",
+      "que sont",
+      "que signifie"
+    ],
+    "manière (comment)": [
+      "comment"
+    ],
+    "cause / but (pourquoi)": [
+      "pourquoi",
+      "à quoi sert",
+      "à quoi servent"
+    ],
+    "choix / information (quel)": [
+      "quel",
+      "quelle",
+      "quels",
+      "quelles"
+    ],
+    "lieu (où)": [
+      "où"
+    ],
+    "temps (quand)": [
+      "quand"
+    ],
+    "quantité (combien)": [
+      "combien"
+    ],
+    "personne (qui)": [
+      "qui"
+    ],
+    "oui / non": [
+      "est-ce que",
+      "est-ce",
+      "dois-je",
+      "faut-il",
+      "peut-on",
+      "puis-je",
+      "suis-je",
+      "y a-t-il",
+      "existe-t-il",
+      "est-il",
+      "est-elle"
+    ],
+    "souhait / demande (je veux)": [
+      "je veux",
+      "je veut",
+      "je souhaite",
+      "je voudrais",
+      "j'aimerais",
+      "j'ai besoin"
+    ]
   }
 }
