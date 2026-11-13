@@ -44,5 +44,13 @@
       "responses": ["Si vous aimez résoudre des problèmes complexes, comprendre comment les machines 'pensent', et que les mathématiques et l'informatique vous intéressent, alors l'IA pourrait être un bon choix pour vous.", 
       "L'IA peut sembler complexe au début, mais en avançant progressivement, vous verrez que les concepts deviennent plus clairs. Commencez par des bases solides en programmation et explorez ensuite des sujets comme l'apprentissage automatique."]
     }
-  ]
+  ],
+  "entities": {
+    "langage": ["Python", "R", "Java", "C++", "SQL", "Julia"],
+    "plateforme": ["Coursera", "Udemy", "OpenClassrooms", "MOOC", "MOOCs"],
+    "metier": ["data scientist", "ingénieur en apprentissage automatique", "chercheur en IA", "développeur d'algorithmes", "spécialiste en vision par ordinateur"],
+    "secteur": ["santé", "médecine", "finance", "transports", "éducation", "divertissement", "jeux vidéo"],
+    "domaine_ia": ["apprentissage automatique", "machine learning", "deep learning", "traitement du langage naturel", "NLP", "vision par ordinateur", "reconnaissance d'images"],
+    "formation": ["master", "informatique", "mathématiques appliquées", "cursus"]
+  }
 }

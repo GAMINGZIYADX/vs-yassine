@@ -4,6 +4,7 @@ os.environ["KERAS_BACKEND"] = "torch"  # Keras seul, sans TensorFlow (doit préc
 
 import json
 import random
+import re
 import string
 from pathlib import Path
 
@@ -134,6 +135,29 @@ def bag_of_words(text):
     return np.array([[1 if w in words else 0 for w in vocab]], dtype=np.float32)
 
 
+# tache V : détection des entités (dictionnaire "entities" du JSON)
+# {"entities": {"type": ["valeur1", "valeur2", ...]}} : à enrichir avec le corpus
+entity_values = [
+    (value, etype)
+    for etype, values in data.get("entities", {}).items()
+    for value in values
+]
+entity_values.sort(key=lambda ev: len(ev[0]), reverse=True)  # les plus longues d'abord
+
+
+def detect_entities(text):
+    found = []
+    taken = []  # zones déjà prises, pour éviter les chevauchements
+    for value, etype in entity_values:
+        pattern = r"(?<!\w)" + re.escape(value) + r"(?!\w)"
+        for m in re.finditer(pattern, text, flags=re.IGNORECASE):
+            if any(m.start() < e and m.end() > s for s, e in taken):
+                continue
+            taken.append((m.start(), m.end()))
+            found.append((m.group(0), etype))
+    return found
+
+
 SEUIL = 0.7  # score minimal pour accepter une prédiction
 
 
@@ -159,6 +183,9 @@ while True:
         break
     if not question:
         continue
+    entities = detect_entities(question)
+    if entities:
+        print("  Entités :", ", ".join(f"{v} ({t})" for v, t in entities))
     intention, score = predict_intent(question)
     if bag_of_words(question).sum() > 0:
         probs = model.predict(bag_of_words(question), verbose=0)[0]
