@@ -1,4 +1,11 @@
-.venv/
+00000000.venv/
 *.bin
 *.gz
 __pycache__/
+
+# venv
+venv/
+.venv/
+
+# ancien clone du meme depot (doublon)
+vs-yassine/
