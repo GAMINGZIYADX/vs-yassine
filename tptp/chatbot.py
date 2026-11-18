@@ -41,23 +41,30 @@ for intent in data["intents"]:
 # ---------------------------------------------------------------------------
 # 2. Tokenization + lemmatisation (spaCy) -> vocabulaire
 # ---------------------------------------------------------------------------
-nlp = spacy.load("fr_core_news_sm")
+# parser et ner inutiles pour la lemmatisation : on les desactive (plus rapide)
+nlp = spacy.load("fr_core_news_sm", disable=["parser", "ner"])
+
+def lemmes_doc(doc):
+    return [t.lemma_ for t in doc if t.lemma_ not in string.punctuation]
 
 def lemmes(texte):
-    return [t.lemma_ for t in nlp(texte.lower()) if t.lemma_ not in string.punctuation]
+    return lemmes_doc(nlp(texte.lower()))
 
-list_tockens = []
-for phrase in input_texts:
-    list_tockens.extend(lemmes(phrase))
-list_tockens = list(dict.fromkeys(list_tockens))  # valeurs uniques, ordre conserve
+# lemmes de toutes les phrases du corpus, calcules une seule fois (en lot)
+lemmes_corpus = [lemmes_doc(doc) for doc in nlp.pipe(p.lower() for p in input_texts)]
+
+list_tockens = list(dict.fromkeys(l for lems in lemmes_corpus for l in lems))  # uniques, ordre conserve
 index_tockens = {tok: i for i, tok in enumerate(list_tockens)}
 
-def vectoriser(texte):
+def vectoriser_lemmes(lems):
     vect = [0] * len(list_tockens)
-    for lem in lemmes(texte):
+    for lem in lems:
         if lem in index_tockens:
             vect[index_tockens[lem]] = 1
     return vect
+
+def vectoriser(texte):
+    return vectoriser_lemmes(lemmes(texte))
 
 # ---------------------------------------------------------------------------
 # 3. Correction orthographique (sans modifier le corpus)
@@ -94,10 +101,10 @@ def corriger(texte):
 # ---------------------------------------------------------------------------
 def entrainer():
     training = []
-    for phrase, intent in zip(input_texts, output_intentions):
+    for lems, intent in zip(lemmes_corpus, output_intentions):
         vect_y = [0] * len(classes)
         vect_y[classes.index(intent)] = 1
-        training.append([vectoriser(phrase), vect_y])
+        training.append([vectoriser_lemmes(lems), vect_y])
     random.shuffle(training)
     train_X = np.array([t[0] for t in training])
     train_y = np.array([t[1] for t in training])
@@ -128,7 +135,8 @@ def charger_ou_entrainer():
 # ---------------------------------------------------------------------------
 def predire(model, texte, afficher_scores=False):
     corrige = corriger(texte)
-    proba = model.predict(np.array([vectoriser(corrige)]), verbose=0)[0]
+    # appel direct du modele : ~15x plus rapide que model.predict() pour une seule phrase
+    proba = model(np.array([vectoriser(corrige)], dtype="float32"), training=False).numpy()[0]
     ordre = np.argsort(proba)[::-1]
     if afficher_scores:
         print(f"  texte corrigé : {corrige}")
