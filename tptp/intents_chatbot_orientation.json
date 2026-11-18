@@ -1,0 +1,396 @@
+{
+    "intents": [
+        {
+            "tag": "salutation",
+            "patterns": [
+                "Bonjour",
+                "Salut",
+                "Bonsoir",
+                "Coucou",
+                "Hello",
+                "Salam",
+                "Salam alaykoum",
+                "Sbah lkhir",
+                "Bonjour chatbot",
+                "Est-ce que tu es là ?",
+                "J'ai une question",
+                "Peux-tu m'aider ?",
+                "Je voudrais te parler",
+                "Bonsoir, comment ça va ?",
+                "Allo",
+                "Y a quelqu'un ?",
+                "Enchanté",
+                "Je commence une conversation",
+                "Salut, j'ai besoin d'aide",
+                "Bonjour à vous"
+            ],
+            "responses": [
+                "Bonjour ! Je suis le conseiller d’orientation du pole. Que souhaitez-vous découvrir ?"
+            ]
+        },
+        {
+            "tag": "presentation_pole",
+            "patterns": [
+                "Présente-moi le pole",
+                "Qu'est-ce que le pole Développement Digital et IA ?",
+                "Je veux connaitre le pole",
+                "Parle-moi de votre pole",
+                "Quel est le role de ce pole ?",
+                "Que propose le pole ?",
+                "C'est quoi le Pole Développement Digital ?",
+                "Je voudrais une présentation du pole",
+                "Quelles sont les activités du pole ?",
+                "Explique-moi le fonctionnement du pole",
+                "Quels domaines sont enseignés dans ce pole ?",
+                "Qu'est-ce qu'on apprend dans ce pole ?",
+                "Quelles formations sont proposées ici ?",
+                "Donne-moi des informations sur le pole",
+                "À quoi sert le pole ?",
+                "Quels sont les objectifs du pole ?",
+                "Je cherche une présentation générale",
+                "Décris le pole en quelques mots",
+                "Quelles spécialités relèvent de ce pole ?",
+                "Je veux en savoir plus sur ce centre"
+            ],
+            "responses": [
+                "Le pole regroupe des formations liées au développement digital et à l’intelligence artificielle. Je peux vous présenter ses filières, programmes et débouchés."
+            ]
+        },
+        {
+            "tag": "liste_filieres",
+            "patterns": [
+                "Quelles sont les filières disponibles ?",
+                "Donne-moi la liste des filières",
+                "Quelles formations proposez-vous ?",
+                "Je veux connaitre les spécialités",
+                "Quels parcours peut-on suivre dans ce pole ?",
+                "Il y a quelles filières ?",
+                "Liste les formations du pole",
+                "Quelles sont les options de formation ?",
+                "Quels choix de spécialité existent ?",
+                "Je cherche les filières proposées",
+                "Quelles branches sont disponibles ?",
+                "Est-ce qu'il y a une filière en IA ?",
+                "Proposez-vous une formation en développement digital ?",
+                "Quelles spécialités peut-on choisir après le bac ?",
+                "Je voudrais voir toutes les filières",
+                "Quels cursus sont proposés ?",
+                "Quelles sont les formations accessibles ?",
+                "Montre-moi les spécialités du pole",
+                "Quels domaines de formation sont disponibles ?",
+                "Je veux comparer les filières"
+            ],
+            "responses": [
+                "Je peux vous présenter les filières disponibles. Les intitulés et conditions d’accès doivent être vérifiés à partir de la liste officielle du pole."
+            ]
+        },
+        {
+            "tag": "orientation",
+            "patterns": [
+                "Aide-moi à choisir une filière",
+                "Quelle filière me conseilles-tu ?",
+                "Je ne sais pas quelle spécialité choisir",
+                "Je veux être orienté",
+                "Quelle formation correspond à mon profil ?",
+                "Peux-tu me recommander une formation ?",
+                "Je cherche la filière qui me convient",
+                "Aide-moi à trouver mon parcours",
+                "Quel parcours choisir pour travailler dans l'IA ?",
+                "Je veux faire de la programmation, quelle filière choisir ?",
+                "Quelle spécialité est adaptée à mes intérêts ?",
+                "Je suis perdu dans le choix de ma formation",
+                "Comment choisir entre les filières ?",
+                "Je voudrais un conseil d'orientation",
+                "Quelle formation choisir selon mes compétences ?",
+                "Je veux devenir développeur, que dois-je étudier ?",
+                "Je souhaite travailler dans la data, quelle filière suivre ?",
+                "Oriente-moi selon mon niveau",
+                "Je veux choisir une spécialité d'avenir",
+                "Peux-tu analyser mon profil et me proposer une filière ?"
+            ],
+            "responses": [
+                "Pour vous orienter, je vais vous poser quelques questions sur vos centres d’intérêt, vos compétences, votre niveau et votre objectif professionnel."
+            ]
+        },
+        {
+            "tag": "interets",
+            "patterns": [
+                "J'aime la programmation",
+                "Je m'intéresse à l'intelligence artificielle",
+                "Je préfère les mathématiques et les statistiques",
+                "J'aime analyser les données",
+                "Je suis passionné par les applications mobiles",
+                "J'aime créer des sites web",
+                "Je m'intéresse aux réseaux informatiques",
+                "Je préfère le design numérique",
+                "J'aime les robots et l'automatisation",
+                "Je suis intéressé par la cybersécurité",
+                "J'aime résoudre des problèmes logiques",
+                "Je préfère travailler avec les données",
+                "Je m'intéresse au développement web",
+                "J'aime créer des applications",
+                "Je voudrais apprendre le machine learning",
+                "Je suis attiré par le cloud computing",
+                "J'aime les bases de données",
+                "Je préfère la programmation Python",
+                "Je m'intéresse aux nouvelles technologies",
+                "Mon domaine préféré est la data science"
+            ],
+            "responses": [
+                "Merci pour cette précision. Je prends en compte vos centres d’intérêt pour vous proposer une orientation cohérente."
+            ]
+        },
+        {
+            "tag": "competences",
+            "patterns": [
+                "Je connais les bases de Python",
+                "J'ai des compétences en HTML et CSS",
+                "Je maitrise un peu JavaScript",
+                "Je sais utiliser Excel",
+                "J'ai déjà travaillé avec Pandas",
+                "Je connais les bases de SQL",
+                "Je suis débutant en programmation",
+                "J'ai un bon niveau en mathématiques",
+                "Je sais créer des pages web",
+                "J'ai déjà développé une application",
+                "Je connais le langage Java",
+                "Je maitrise les outils bureautiques",
+                "J'ai des notions en statistiques",
+                "J'ai utilisé Power BI",
+                "Je connais un peu le machine learning",
+                "Je n'ai aucune expérience en programmation",
+                "Je suis à l'aise avec les algorithmes",
+                "J'ai appris le langage C",
+                "Je sais manipuler des bases de données",
+                "Je voudrais évaluer mes compétences"
+            ],
+            "responses": [
+                "Merci. Votre niveau et vos compétences seront pris en compte dans l’analyse de votre profil."
+            ]
+        },
+        {
+            "tag": "programme_formation",
+            "patterns": [
+                "Quel est le programme de cette formation ?",
+                "Quels modules sont enseignés ?",
+                "Je veux connaitre les matières",
+                "Que va-t-on apprendre dans cette filière ?",
+                "Quels sont les modules de la première année ?",
+                "Quel est le contenu pédagogique ?",
+                "Quelles compétences vais-je acquérir ?",
+                "Combien de temps dure la formation ?",
+                "Est-ce qu'on étudie Python dans cette filière ?",
+                "Est-ce qu'il y a des projets pratiques ?",
+                "Quels langages de programmation sont enseignés ?",
+                "Y a-t-il des stages pendant la formation ?",
+                "Donne-moi le programme détaillé",
+                "Quelles matières sont au programme ?",
+                "Est-ce qu'on apprend les bases de données ?",
+                "Est-ce que la formation contient de l'IA ?",
+                "Quels outils utilise-t-on pendant les cours ?",
+                "Je voudrais consulter les modules",
+                "Comment est organisée la formation ?",
+                "Quels sont les objectifs pédagogiques de cette filière ?"
+            ],
+            "responses": [
+                "Je peux vous expliquer le programme, les modules et les compétences visées à partir du programme officiel de la filière."
+            ]
+        },
+        {
+            "tag": "metiers",
+            "patterns": [
+                "Quels métiers puis-je exercer après cette formation ?",
+                "Quels métiers sont liés à l'IA ?",
+                "Que peut-on faire comme travail après cette filière ?",
+                "Je veux devenir data analyst",
+                "Comment devenir développeur web ?",
+                "Quels métiers existent dans le digital ?",
+                "Quel métier choisir après une formation en informatique ?",
+                "Que fait un data scientist ?",
+                "C'est quoi le métier de développeur logiciel ?",
+                "Quels métiers utilisent Python ?",
+                "Je voudrais travailler dans la cybersécurité",
+                "Quels sont les métiers de la data ?",
+                "Est-ce que je peux devenir ingénieur IA ?",
+                "Quels postes sont accessibles après le diplome ?",
+                "Quel métier consiste à créer des applications mobiles ?",
+                "Que fait un administrateur de bases de données ?",
+                "Quels métiers peut-on exercer dans le cloud ?",
+                "Je veux travailler comme spécialiste en machine learning",
+                "Présente-moi les métiers du développement digital",
+                "Quels débouchés professionnels correspondent à cette spécialité ?"
+            ],
+            "responses": [
+                "Je peux vous présenter les métiers associés à cette formation, leurs missions et les compétences généralement demandées."
+            ]
+        },
+        {
+            "tag": "debouches",
+            "patterns": [
+                "Quels sont les débouchés de cette filière ?",
+                "Est-ce que cette formation permet de trouver un emploi ?",
+                "Dans quels secteurs peut-on travailler ?",
+                "Quelles entreprises recrutent ces profils ?",
+                "Y a-t-il des opportunités après le diplome ?",
+                "Est-ce que le domaine recrute ?",
+                "Peut-on travailler à l'étranger avec ce diplome ?",
+                "Quels secteurs utilisent l'intelligence artificielle ?",
+                "Est-ce qu'on peut poursuivre les études après cette formation ?",
+                "Quelles possibilités après la formation ?",
+                "Est-ce un secteur qui a de l'avenir ?",
+                "Quels types d'entreprises embauchent les développeurs ?",
+                "Peut-on créer sa propre entreprise après cette formation ?",
+                "Quels sont les débouchés professionnels ?",
+                "Est-ce facile de trouver un stage ?",
+                "Quels domaines recrutent les data analysts ?",
+                "Où peut travailler un technicien spécialisé en digital ?",
+                "Peut-on travailler en freelance ?",
+                "Quelles perspectives après le diplome ?",
+                "Quels secteurs d'activité recherchent ces compétences ?"
+            ],
+            "responses": [
+                "Les débouchés dépendent de la filière, des compétences acquises et du marché de l’emploi. Je peux détailler les secteurs à partir d’informations validées."
+            ]
+        },
+        {
+            "tag": "conseils",
+            "patterns": [
+                "Quels conseils me donnes-tu pour réussir ?",
+                "Comment progresser en programmation ?",
+                "Comment préparer mon entrée en formation ?",
+                "Que dois-je apprendre avant de commencer ?",
+                "Comment améliorer mon niveau en Python ?",
+                "Quels outils dois-je installer ?",
+                "Comment construire un bon portfolio ?",
+                "Comment trouver un stage ?",
+                "Comment préparer un entretien technique ?",
+                "Quelles compétences dois-je développer ?",
+                "Comment apprendre l'intelligence artificielle ?",
+                "Donne-moi un plan d'apprentissage",
+                "Comment pratiquer davantage ?",
+                "Quels projets puis-je réaliser pour débuter ?",
+                "Comment améliorer mon anglais technique ?",
+                "Comment réussir dans le domaine de la data ?",
+                "Que me conseilles-tu pour mon avenir professionnel ?",
+                "Comment me préparer au métier de développeur ?",
+                "Quelles habitudes adopter pour apprendre efficacement ?",
+                "Par quoi commencer pour apprendre le développement web ?"
+            ],
+            "responses": [
+                "Je peux vous proposer des conseils et un plan de progression adapté à votre niveau et à votre objectif."
+            ]
+        },
+        {
+            "tag": "reformulation",
+            "patterns": [
+                "Je n'ai pas compris",
+                "Peux-tu expliquer autrement ?",
+                "Reformule s'il te plait",
+                "Explique plus simplement",
+                "Je ne comprends pas cette réponse",
+                "Peux-tu donner un exemple ?",
+                "Tu peux détailler davantage ?",
+                "Que veux-tu dire exactement ?",
+                "Explique avec des mots simples",
+                "Je suis perdu, reprends depuis le début",
+                "Peux-tu préciser ?",
+                "Donne-moi une explication plus claire",
+                "Je n'ai pas bien compris la différence",
+                "Peux-tu illustrer avec un exemple concret ?",
+                "Résume ta réponse",
+                "Explique étape par étape",
+                "Je voudrais une autre formulation",
+                "Peux-tu développer ce point ?",
+                "C'est encore un peu compliqué",
+                "Donne une définition plus simple"
+            ],
+            "responses": [
+                "Bien sûr. Je vais reformuler avec des mots plus simples et ajouter un exemple concret si nécessaire."
+            ]
+        },
+        {
+            "tag": "recommencer",
+            "patterns": [
+                "Recommencer",
+                "On recommence depuis le début",
+                "Je veux refaire le test",
+                "Réinitialise mon orientation",
+                "Efface mes réponses précédentes",
+                "Je voudrais recommencer le questionnaire",
+                "Reprenons à zéro",
+                "Je veux changer toutes mes réponses",
+                "On peut recommencer ?",
+                "Refaisons le parcours d'orientation",
+                "Je souhaite refaire mon profil",
+                "Recommence le diagnostic",
+                "Annule mes réponses précédentes",
+                "Je veux démarrer une nouvelle orientation",
+                "Nouvelle session",
+                "Repartir de zéro",
+                "Je me suis trompé, recommençons",
+                "Je veux refaire le choix de filière",
+                "Lance un nouveau parcours",
+                "Recommence la discussion d'orientation"
+            ],
+            "responses": [
+                "D’accord. Nous allons reprendre le parcours d’orientation depuis le début."
+            ]
+        },
+        {
+            "tag": "au_revoir",
+            "patterns": [
+                "Au revoir",
+                "À bientot",
+                "Merci, bonne journée",
+                "Bonne soirée",
+                "À la prochaine",
+                "C'est tout pour moi",
+                "Merci pour ton aide",
+                "Je dois partir",
+                "On arrête ici",
+                "Fin de la discussion",
+                "Merci beaucoup",
+                "Bonne continuation",
+                "À plus tard",
+                "Je te remercie",
+                "Ciao",
+                "Salam, à bientot",
+                "J'ai terminé",
+                "Merci, c'était utile",
+                "Je n'ai plus de questions",
+                "Terminé"
+            ],
+            "responses": [
+                "Merci pour votre échange. Bonne continuation dans votre parcours de formation et votre orientation professionnelle !"
+            ]
+        },
+        {
+            "tag": "inconnu",
+            "patterns": [
+                "Quel temps fera-t-il demain ?",
+                "Donne-moi une recette de gâteau",
+                "Raconte-moi une blague",
+                "Combien font 25 multiplié par 17 ?",
+                "Écris un poème sur la mer",
+                "Qui a gagné le match hier ?",
+                "Je cherche un hotel pour les vacances",
+                "Traduis cette phrase en espagnol",
+                "Quelle est la capitale du Japon ?",
+                "Donne-moi la météo de Casablanca",
+                "Je veux acheter un téléphone",
+                "Comment réparer une fuite d'eau ?",
+                "Joue une chanson",
+                "Écris une histoire fantastique",
+                "Quel est le prix du carburant aujourd'hui ?",
+                "Explique-moi la photosynthèse",
+                "Je veux réserver un restaurant",
+                "Comment faire du pain maison ?",
+                "Donne-moi les actualités du jour",
+                "Quel est le meilleur film de cette année ?"
+            ],
+            "responses": [
+                "Je ne suis pas certain d’avoir compris votre demande. Je peux vous aider concernant le pole, les filières, les programmes, les compétences, les métiers et l’orientation."
+            ]
+        }
+    ]
+}
