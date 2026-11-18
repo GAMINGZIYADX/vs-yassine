@@ -74,10 +74,16 @@ def corriger_mot(m):
     if not m.isalpha() or m in spell:
         return m
     candidats = spell.candidates(m) or set()
-    dans_corpus = candidats & mots_corpus
-    if dans_corpus:
-        return max(dans_corpus, key=spell.word_usage_frequency)
-    return spell.correction(m) or m
+    if not candidats:
+        return m
+
+    def score(c):
+        # 1) memes lettres inversees (qoui -> quoi) : faute de frappe la plus courante
+        # 2) mot du vocabulaire du chatbot   3) meme longueur   4) frequence en francais
+        return (sorted(c) == sorted(m), c in mots_corpus, len(c) == len(m),
+                spell.word_usage_frequency(c))
+
+    return max(candidats, key=score)
 
 def corriger(texte):
     # ne remplace que les mots fautifs : ponctuation et espaces restent intacts
