@@ -2,21 +2,22 @@
 
 | Slot | Valeur |
 |---|---|
-| intention | Aide et contact |
-| type_question | souhait / demande (je veux) |
+| intention | Cybersécurité |
+| type_question | oui / non |
 | domaine_ia | — |
 | metier | — |
-| langage | Python |
+| langage | — |
 | framework | — |
 | plateforme | — |
-| formation | master |
+| formation | — |
 | secteur | cybersécurité |
-| prix | tarifs |
+| prix | — |
 | modalite | — |
+| etablissement | OFPPT |
+| certification | CCAA |
+| logiciel | Excel |
 
 ## Historique
-1. Quelle sont les tarifs pour la formation du Python → *Tarifs*
-2. et quelle sont les secteurs possible que je peut integrer avec cette formation → *inconnue*
-3. quelle plateform utiliser vous? → *Aide et contact*
-4. je veut trvailler dans le secteur du médcine → *Débouchés*
-5. j'ai un master dans la cybersécurité → *Aide et contact*
+1. Je veux passer la certification Excel à l'OFPPT → *Filières OFPPT*
+2. Qu'est-ce que le CCAA ? → *Cybersécurité*
+3. Y a-t-il une formation en cybersécurité à l'OFPPT ? → *Cybersécurité*

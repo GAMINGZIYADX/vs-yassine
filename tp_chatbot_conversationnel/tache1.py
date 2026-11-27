@@ -7,6 +7,7 @@ import random
 import re
 import string
 from pathlib import Path
+from pprint import pprint
 
 import nltk
 import numpy as np
@@ -14,6 +15,8 @@ from nltk.stem import WordNetLemmatizer
 from keras.layers import Dense, Dropout, Input
 from keras.models import Sequential
 from keras.optimizers import Adam
+
+from ner import predict_entities  # DistilCamemBERT-NER fine-tuné (dossier ner_model/)
 
 
 nltk.download("punkt", quiet=True)
@@ -154,6 +157,11 @@ def detect_entities(text):
     text = text.replace("’", "'")
     found = []
     taken = []  # zones déjà prises, pour éviter les chevauchements
+    # 1. modèle DistilCamemBERT fine-tuné (ner_train.py) : repère aussi des valeurs absentes des listes
+    for value, etype, start, end in predict_entities(text):
+        taken.append((start, end))
+        found.append((value, etype))
+    # 2. mots-clés du JSON en complément
     for value, etype in entity_values:
         pattern = r"(?<!\w)" + re.escape(value) + r"(?!\w)"
         for m in re.finditer(pattern, text, flags=re.IGNORECASE):
@@ -268,3 +276,5 @@ while True:
         print(f"Intention : {intention} | Classe : {classes.index(intention)} | Score : {score:.2%}")
     if update_state(question, intention, qtype, entities):
         write_state()
+    print("state =", end=" ")
+    pprint(state, sort_dicts=False)

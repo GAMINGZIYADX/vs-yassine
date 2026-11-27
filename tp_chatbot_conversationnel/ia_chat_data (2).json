@@ -277,6 +277,49 @@
         "Beaucoup de formations en IA existent en ligne, en présentiel, en hybride ou en alternance. Un master dure en général 2 ans, un bootcamp quelques mois, et les cours en ligne se suivent à votre rythme, y compris à temps partiel.",
         "Selon l'établissement, vous pouvez suivre les cours à distance, en présentiel ou en alternance. Vérifiez la durée et le rythme (temps plein ou partiel) avant de vous inscrire."
       ]
+    },
+    {
+      "intent": "Filières OFPPT",
+      "questions": [
+        "Quelles filières propose MyWay dans le secteur DIA ?",
+        "Quelles formations qualifiantes existent à l'OFPPT ?",
+        "Quelles certifications Microsoft Office sont proposées à l'OFPPT ?",
+        "Je veux une certification Excel",
+        "Je veux passer la certification Word",
+        "Y a-t-il une certification Access ou Outlook ?",
+        "Existe-t-il une certification PowerPoint ?",
+        "Quelle formation pour devenir bureauticien certifié ?",
+        "Combien dure la formation de bureauticien certifié ?",
+        "Quels cours du jour sont proposés en DIA ?",
+        "Combien de filières DIA y a-t-il sur MyWay ?",
+        "Qu'est-ce que le Microsoft Office Specialist ?",
+        "Quel niveau faut-il pour une formation qualifiante de technicien ?"
+      ],
+      "responses": [
+        "Sur MyWay (OFPPT), le secteur DIA affichait 44 filières. Les formations qualifiantes en cours du jour visibles incluent le Bureauticien Certifié en Microsoft Office Spécialiste (niveau Technicien, 380 heures), les certifications Microsoft Office Spécialiste en Access, Word, Excel, Outlook et PowerPoint, et des certifications en cybersécurité (CCAA, CFCP, CTIA).",
+        "Le Bureauticien Certifié en Microsoft Office Spécialiste (niveau Technicien, 380 heures, cours du jour) forme des informaticiens bureautiques certifiés qui travaillent en PME/PMI ou en administration et automatisent les tâches de gestion avec les outils informatiques.",
+        "Les certifications Microsoft Office Spécialiste se passent par logiciel : Access, Word, Excel, Outlook et PowerPoint. Ce sont des formations qualifiantes de niveau Technicien en cours du jour ; la certification Outlook dure par exemple 30 heures en présentiel. Détails des autres filières sur myway.ac.ma."
+      ]
+    },
+    {
+      "intent": "Cybersécurité",
+      "questions": [
+        "Y a-t-il une formation en cybersécurité à l'OFPPT ?",
+        "Qu'est-ce que la certification CCAA ?",
+        "C'est quoi le CFCP ?",
+        "Qu'est-ce que le CTIA ?",
+        "Quelle certification choisir pour devenir analyste en cybersécurité ?",
+        "Peut-on apprendre le hacking éthique ?",
+        "Quels métiers après une certification en cybersécurité ?",
+        "Comment se former à l'analyse forensique ?",
+        "Quelle formation pour la threat intelligence ?",
+        "Je veux me former en cybersécurité"
+      ],
+      "responses": [
+        "Le Certified Cybersecurity Advanced Analyst (CCAA) forme des spécialistes en cybersécurité, en analyse forensique et en renseignement sur les menaces : hacking éthique, conformité, réponse aux incidents et formation des équipes.",
+        "Le Certified Fundamental Cybersecurity Practitioner (CFCP) couvre les bases : protection des systèmes d'information, mise en place de mesures de sécurité, détection et réponse aux incidents, et sensibilisation des collaborateurs.",
+        "Le Certified Threat Intelligence Associate (CTIA) porte sur la collecte et l'analyse du renseignement sur les menaces, la détection des cybermenaces, la réponse aux incidents et la conformité."
+      ]
     }
   ],
   "entities": {
@@ -349,7 +392,11 @@
       "mathématiques",
       "statistiques",
       "maths",
-      "cursus"
+      "cursus",
+      "Technicien",
+      "formation qualifiante",
+      "qualifiante",
+      "bureauticien certifié"
     ],
     "secteur": [
       "santé",
@@ -365,7 +412,9 @@
       "cybersécurité",
       "automobile",
       "commerce",
-      "marketing"
+      "marketing",
+      "cybersécurité",
+      "bureautique"
     ],
     "prix": [
       "gratuit",
@@ -395,7 +444,29 @@
       "autodidacte",
       "en autodidacte",
       "cours du soir",
-      "week-end"
+      "week-end",
+      "cours du jour"
+    ],
+    "etablissement": [
+      "OFPPT",
+      "MyWay"
+    ],
+    "certification": [
+      "Microsoft Office Specialist",
+      "Microsoft Office Spécialiste",
+      "MOS",
+      "CCAA",
+      "CFCP",
+      "CTIA",
+      "certification"
+    ],
+    "logiciel": [
+      "Microsoft Office",
+      "Word",
+      "Excel",
+      "Access",
+      "Outlook",
+      "PowerPoint"
     ]
   },
   "question_types": {
